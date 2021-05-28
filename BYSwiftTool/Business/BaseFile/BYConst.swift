@@ -8,6 +8,9 @@
 import UIKit
 import Foundation
 
+// MARK: -全局import
+@_exported import SnapKit
+
 
 
 // MARK: -高度相关
@@ -20,8 +23,7 @@ let KSafeAreaTopHeight = UIApplication.shared.statusBarFrame.size.height + 44.0
 /// tabbar高度
 let KTabbarHeight = UIApplication.shared.statusBarFrame.size.height > 20.0 ? 83.0 : 49.0
 /// 适配iPhoneX底部距离，34
-let SafeAreaBottomHeight = isNotchScreen() ? 34 : 0
-
+let KSafeAreaBottomHeight = isNotchScreen() ? 34 : 0
 
 
 // MARK: -字体
@@ -45,6 +47,8 @@ func Semibold_FONT(_ font:CGFloat) -> UIFont {
 
 
 // MARK: -颜色色值
+let BackGroundColor = UIColor.yellow
+
 let White_Color = isDark() ? UIColor.white : UIColor.red
 
 ////白色
@@ -64,12 +68,8 @@ func WHITE_COLOR() -> UIColor {
 }
 
 
-
-
-
-
-
-
+// MARK: -本地化
+let KUserDefaults = UserDefaults.standard
 
 
 

@@ -8,6 +8,7 @@
 import UIKit
 
 extension UILabel {
+    
     enum FontNameType {
         case Medium,Regular,Light,Semibold
     }

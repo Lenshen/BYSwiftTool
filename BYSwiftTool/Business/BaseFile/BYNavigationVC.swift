@@ -11,19 +11,16 @@ class BYNavigationVC: UINavigationController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        navigationBar.backgroundColor = WHITE_COLOR()
+//        navigationItem.leftBarButtonItem = UIBarButtonItem.init(image: UIImage.init(named: "tabBarItem0"), style: .plain, target: self, action: #selector(back))
+        
         // Do any additional setup after loading the view.
     }
     
+//    @objc func back(){
+//        popViewController(animated: true)
+//    }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+    
 
 }

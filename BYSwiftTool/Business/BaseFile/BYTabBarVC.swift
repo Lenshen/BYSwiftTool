@@ -18,6 +18,7 @@ class BYTabBarVC: UITabBarController {
     }
     
     func setUI(){
+        tabBar.backgroundColor = WHITE_COLOR()
         var nvcs = [BYNavigationVC]()
         for (idx,v) in vcs.enumerated() {
             let nav = BYNavigationVC(rootViewController: v)

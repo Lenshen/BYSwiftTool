@@ -14,5 +14,7 @@ class HomeVC: BYBaseTableViewVC {
         title = "家"
     }
     
-    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.navigationController?.pushViewController(BusinessVC(), animated: true)
+    }
 }

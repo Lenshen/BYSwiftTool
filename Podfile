@@ -4,9 +4,7 @@ source "https://cdn.cocoapods.org/"
 
 target 'BYSwiftTool' do
 
-  pod 'AFNetworking'
   pod 'SnapKit', '~> 5.0.1'
-
-
+  pod 'MJRefresh', '~> 3.6.1'
 end
 

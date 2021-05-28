@@ -6,18 +6,42 @@
 //
 
 import UIKit
+import MJRefresh
+
+enum MJRefreshType {
+    case head,foot,headFoot,none
+}
 
 class BYBaseTableViewVC: BYBaseVC {
+    var pageIdx = 1
+    var pageSize = 20
+    var refreshType : MJRefreshType!{
+        didSet{
+            if refreshType == .head || refreshType == .headFoot{
+                tableView.mj_header = MJRefreshStateHeader(refreshingBlock: {[weak self] in
+                    self!.reloadData()
+                })
+            }
+            if refreshType == .foot || refreshType == .headFoot{
+                tableView.mj_footer = MJRefreshBackGifFooter(refreshingBlock: {[weak self] in
+                    self!.moreData()
+                })
+            }
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         tableView.frame = view.frame
+        tableView.mj_y = KSafeAreaTopHeight
+        tableView.mj_h = KScreenHeight - KSafeAreaTopHeight - CGFloat(KTabbarHeight)
         tableView.delegate = self
         tableView.dataSource = self
         view.addSubview(tableView)
-    
+        
+        refreshType = .headFoot
     }
     
     lazy var tableView: UITableView = {
@@ -25,7 +49,21 @@ class BYBaseTableViewVC: BYBaseVC {
         t.rowHeight = 44
         return t
     }()
-
+    
+    //下拉刷新
+    func reloadData(){
+        pageIdx = 1
+        getData()
+    }
+    //上拉加载更多
+    func moreData(){
+        pageIdx += 1
+        getData()
+    }
+    //获取数据
+    func getData(){
+        
+    }
 }
 
 extension BYBaseTableViewVC: UITableViewDataSource,UITableViewDelegate{
